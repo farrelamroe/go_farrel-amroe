@@ -1,16 +1,22 @@
-package praktikum
+package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func sum(n int) int {
-	result := 0
-	for i := n; i > 0; i-- {
-		for j := 0; j < n; j++ {
-			result += i;
-		}
+func power(a, b int) int {
+	result := 1
+	for i := 0; i < b; i++ {
+		result *= a
 	}
 	return result
 }
-func main() {
 
+func main() {
+	var base, exponent int
+	fmt.Printf("Masukkan basis (integer): ")
+	fmt.Scanf("%d", &base)
+	fmt.Print("Masukkan eksponen (integer): ")
+	fmt.Scanf("%d", &exponent)
+	fmt.Println("Hasilnya adalah", power(base, exponent))
 }
