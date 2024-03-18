@@ -1,0 +1,23 @@
+CREATE TABLE Restaurant (
+    RestaurantID INT PRIMARY KEY AUTO_INCREMENT, Nama VARCHAR(255) NOT NULL, Address TEXT, FOREIGN KEY (RestaurantTypeID) REFERENCES RestaurantTypes (RestaurantTypeID)
+);
+
+CREATE TABLE RestaurantTypes (
+    RestaurantTypeID INT PRIMARY KEY AUTO_INCREMENT, Nama VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE MenuTypes (
+    MenuTypeID INT PRIMARY KEY AUTO_INCREMENT, Nama VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Menus (
+    Nama VARCHAR(255), Description TEXT, Price INT, FOREIGN KEY (RestaurantID) REFERENCES Restaurant (RestaurantID), FOREIGN KEY (MenuTypeID) REFERENCES MenuTypes (MenuTypeID)
+);
+
+CREATE TABLE User (
+    UserID INT PRIMARY KEY AUTO_INCREMENT, Username VARCHAR(255), Email VARCHAR(255), Password VARCHAR(255)
+)
+
+CREATE TABLE UserReviews (
+    UserReviewsID INT PRIMARY KEY AUTO_INCREMENT, UserID INT PRIMARY KEY AUTO_INCREMENT, Rating FLOAT, Description TEXT, FOREIGN KEY (RestaurantID) REFERENCES Restaurant (RestaurantID)
+)
